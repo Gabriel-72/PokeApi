@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import 'resources/views/style.css';
 
 export default defineConfig({
     plugins: [
