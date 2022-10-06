@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 
 class pokedex extends Controller
@@ -12,11 +13,27 @@ class pokedex extends Controller
         dd($response)->json();
     }
 
-    public function GetPikachu($id) {
+    public static function getPikachu($id) {
 
-        $response = Http::get('https://pokeapi.co/api/v2/pokemon/'.$id);
-
-        return $response;
+       $response = Http::get('https://pokeapi.co/api/v2/pokemon/'.$id);
+       $arr =[
+        'name',
+        'height'
+       ];
+       return $response->json("name", "id" );
     }
+
+    public static function jsonpokemon() {
+        return [
+            'json' => [
+                'name',
+                'height'
+
+            ]
+        ];
+
+
+    }
+
 
 }
