@@ -3,24 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 
 class pokedex extends Controller
 {
     public function index(){
-        $response = Http::get('https://pokeapi.co/api/v2/pokemon/1/');
-        dd($response)->json();
+        $response = Http::get('https://pokeapi.co/api/v2/pokemon/2/');
+        return view('index', ['resposta' => $response]);
     }
 
     public static function getPikachu($id) {
 
        $response = Http::get('https://pokeapi.co/api/v2/pokemon/'.$id);
-       $arr =[
-        'name',
-        'height'
-       ];
-       return $response->json("name", "id" );
+       $pokemon = json_decode($response, true);
+        $data = [
+            'name' => Arr::get($pokemon, 'forms.0.name'),
+            'height' => Arr::get($pokemon, 'height')
+        ];
+        return view('index', ['resposta' => $data]);
+
     }
 
     public static function jsonpokemon() {

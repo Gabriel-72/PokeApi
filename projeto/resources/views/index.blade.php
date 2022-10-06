@@ -7,12 +7,12 @@
     <title>Dados da PokeApi</title>
 </head>
 <body>
-    @foreach ($resposta as $id)
+
 
         <li>{{$resposta ['name']}}</li>
 
         <li>{{$resposta ['height']}}</li>
 
-    @endforeach
+
 </body>
 </html>
