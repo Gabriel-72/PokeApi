@@ -17,12 +17,12 @@ class pokedex extends Controller
     public static function getPikachu($id) {
 
        $response = Http::get('https://pokeapi.co/api/v2/pokemon/'.$id);
-       $pokemon = json_decode($response, true);
-        $data = [
-            'name' => Arr::get($pokemon, 'forms.0.name'),
-            'height' => Arr::get($pokemon, 'height')
+       $pokemon = json_decode($response, true); //transforma o json em array
+        $data = [ //array contendo as informaçoes que eu quero pegar da api
+            'name' => Arr::get($pokemon, 'forms.0.name'), //informação
+            'height' => Arr::get($pokemon, 'height') //informação
         ];
-        return view('index', ['resposta' => $data]);
+        return view('index', ['resposta' => $data]); //retorna essa informação na view com os dados que eu selecionei
 
     }
 
