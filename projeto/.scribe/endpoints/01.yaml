@@ -1,0 +1,105 @@
+name: Contratos
+description: |-
+
+  Enpoints para manipulação de contratos
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/pikachu/{id}'
+    metadata:
+      groupName: Contratos
+      groupDescription: |-
+
+        Enpoints para manipulação de contratos
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Endpoint de teste'
+      description: |-
+        Check that the service is up. If everything is okay, you'll get a 200 OK response.
+
+        Otherwise, the request will fail with a 400 error, and a response listing the failed services.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 490964.232
+        type: number
+        custom: []
+      razao_social:
+        name: razao_social
+        description: 'Razao social do contrato'
+        required: true
+        example: omnis
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: 490964.232
+      razao_social: omnis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 400
+        content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
+        headers: []
+        description: '400, Service is unhealthy'
+        custom: []
+      -
+        status: 200
+        content: |
+          <!DOCTYPE html>
+          <html lang="pt-br">
+          <head>
+              <meta charset="UTF-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Dados da PokeApi</title>
+          </head>
+          <body>
+
+
+                  <li></li>
+
+                  <li></li>
+
+
+          </body>
+          </html>
+        headers:
+          content-type: 'text/html; charset=UTF-8'
+          cache-control: 'no-cache, private'
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields:
+      status:
+        name: status
+        description: 'The status of this API (`up` or `down`).'
+        required: false
+        example: null
+        type: ''
+        custom: []
+      services:
+        name: services
+        description: 'Map of each downstream service and their status (`up` or `down`).'
+        required: false
+        example: null
+        type: ''
+        custom: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

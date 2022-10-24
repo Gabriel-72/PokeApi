@@ -138,7 +138,7 @@ return [
      * - "static" will generate a static HTMl page in the /public/docs folder,
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
-    'type' => 'static',
+    'type' => 'laravel',
 
     /*
      * Settings for `static` type output.
@@ -426,5 +426,5 @@ INTRO
      * Tell Scribe which connections should be transacted here.
      * If you only use one db connection, you can leave this as is.
      */
-    'database_connections_to_transact' => [config('database.default')]
+     'database_connections_to_transact' => []
 ];

@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pokedex;
 
 
-Route::get('/', [pokedex::class,'index']);
+Route::get('/api', [pokedex::class,'index']);
